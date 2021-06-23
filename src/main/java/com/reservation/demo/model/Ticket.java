@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 
 @Entity
 public class Ticket {
@@ -21,7 +22,6 @@ public class Ticket {
     private int id;
 	private float price;
 	private String pnr;
-	
 	
 	@ManyToOne(targetEntity=Train.class,cascade=CascadeType.ALL )
 	@JoinColumn(name="train_nofk",referencedColumnName="train_no")
@@ -63,6 +63,11 @@ public class Ticket {
 	public void setUser(User user2) {
 		this.user = user2;
 	}
+
+	@PrePersist
+    protected void onCreate() {
+        setPnr(java.util.UUID.randomUUID().toString());
+    }
 	@Override
 	public String toString() {
 		return "Ticket [id=" + id + ", price=" + price + ", pnr=" + pnr + "]";
