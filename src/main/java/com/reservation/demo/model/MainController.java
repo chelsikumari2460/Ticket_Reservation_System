@@ -117,14 +117,23 @@ public class MainController {
 	}
 		@RequestMapping (value = "/viewAllticket", method = RequestMethod.POST)
 		@ResponseBody
-		public void viewticket(@RequestBody Long userid){
+		public void viewticket(@RequestBody Hello h){
 			
 			//
 			//Long userid=2L;
-			List <Ticket> t=tRepo.allticketUserId(userid);
+			System.out.println(h.getTrain_no()+"  "+h.getUser_id());
+			if(h.getTrain_no()==null) {
+				System.out.println(tRepo.allticketUserId(h.getUser_id()));
+			}
+			else if(h.getUser_id()==null) {
+				System.out.println(tRepo.allticketTrain_no(h.getTrain_no()));
+			}
+			else {
+				System.out.println(tRepo.allticket(h.getUser_id(),h.getTrain_no()));
+			}
 			//Ticket t=tRepo.findById(1).orElse(null);
 			//System.out.println(t.getUser().getUserid());
-			System.out.println(t);
+			//System.out.println(t);
 			//return null;
 	}
 	

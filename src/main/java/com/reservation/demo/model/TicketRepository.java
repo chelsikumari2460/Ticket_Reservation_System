@@ -12,4 +12,10 @@ public interface TicketRepository extends JpaRepository<Ticket,Integer> {
 	  
 	  @Query(value ="SELECT * FROM ticket WHERE user_idfk=:user_id",nativeQuery=true)
 	  public List<Ticket> allticketUserId(Long user_id);
+	  
+	  @Query(value ="SELECT * FROM ticket WHERE train_nofk=:train_no",nativeQuery=true)
+	  public List<Ticket> allticketTrain_no(String train_no);
+	  
+	  @Query(value ="SELECT * FROM ticket WHERE train_nofk=:train_no and user_idfk=:user_id ",nativeQuery=true)
+	  public List<Ticket> allticket(Long user_id,String train_no);
 }
