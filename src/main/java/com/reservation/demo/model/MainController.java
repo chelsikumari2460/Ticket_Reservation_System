@@ -121,7 +121,7 @@ public class MainController {
 			
 			//
 			//Long userid=2L;
-			System.out.println(h.getTrain_no()+"  "+h.getUser_id());
+			System.out.println(h);
 			if(h.getTrain_no()==null) {
 				System.out.println(tRepo.allticketUserId(h.getUser_id()));
 			}
@@ -135,7 +135,13 @@ public class MainController {
 			//System.out.println(t.getUser().getUserid());
 			//System.out.println(t);
 			//return null;
-	}
-	
+		}
+		@RequestMapping (value = "/cancelticket", method = RequestMethod.POST)
+		@ResponseBody
+		public void cancelticket(@RequestBody Hello h){
+			System.out.println(h);
+			System.out.println(tRepo.cancelticket(h.getUser_id(), h.getId()));
+		}
+			
 	
 }

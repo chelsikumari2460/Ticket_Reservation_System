@@ -3,6 +3,13 @@ package com.reservation.demo.model;
 class Hello{
 	private String train_no;
 	private Long user_id;
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getTrain_no() {
 		return train_no;
 	}
@@ -17,7 +24,7 @@ class Hello{
 	}
 	@Override
 	public String toString() {
-		return "Hello [src=" + train_no + ", dest=" + user_id + "]";
+		return "Hello [train_no=" + train_no + ", user_id=" + user_id + ", id=" + id + "]";
 	}
 	
 }
