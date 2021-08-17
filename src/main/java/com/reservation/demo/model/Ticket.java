@@ -1,12 +1,6 @@
 package com.reservation.demo.model;
-
-
-
-import java.util.Optional;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +16,27 @@ public class Ticket {
     private int id;
 	private float price;
 	private String pnr;
+	private String name;
+	private int age;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	private String gender;
 	
 	@ManyToOne(targetEntity=Train.class,cascade=CascadeType.ALL )
 	@JoinColumn(name="train_nofk",referencedColumnName="train_no")
@@ -70,7 +85,8 @@ public class Ticket {
     }
 	@Override
 	public String toString() {
-		return "Ticket [id=" + id + ", price=" + price + ", pnr=" + pnr + "]";
+		return "Ticket [id=" + id + ", price=" + price + ", pnr=" + pnr + ", name=" + name + ", age=" + age
+				+ ", gender=" + gender + ", trainobj=" + trainobj + ", user=" + user + "]";
 	}
 	 
 	

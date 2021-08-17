@@ -24,6 +24,6 @@ public interface TicketRepository extends JpaRepository<Ticket,Integer> {
 	  public List<Ticket> allticket(Long user_id,String train_no);
 	  
 	  @Modifying
-	  @Query(value ="Delete FROM ticket WHERE id=:id and user_idfk=:user_id",nativeQuery=true)
-	  public int cancelticket(Long user_id,int id);
+	  @Query(value ="Delete FROM ticket WHERE id=:id",nativeQuery=true)
+	  public int cancelticket(int id);
 }

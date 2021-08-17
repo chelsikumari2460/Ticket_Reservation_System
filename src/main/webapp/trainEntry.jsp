@@ -9,12 +9,12 @@
 <body>
 	<h1> Train Details </h1><br>
 	<form action="/addtrains" method="POST">
-	<input type="text" name="train_no"><br>
-	<input type="text" name="train_name"><br>
-	<input type="text" name="src"><br>
-	<input type="text" name="dest"><br>
+	Train_no <input type="text" name="train_no"><br>
+	Train_name <input type="text" name="train_name"><br>
+	SRC <input type="text" name="src"><br>
+	DEST <input type="text" name="dest"><br>
 	<input type="submit" ><br>
-	hello
+
 	</form>
 	</body>
 </html>
